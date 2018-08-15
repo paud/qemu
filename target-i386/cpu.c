@@ -2108,7 +2108,9 @@ static void x86_cpu_load_def(X86CPU *cpu, X86CPUDefinition *def, Error **errp)
         x86_cpu_apply_props(cpu, kvm_default_props);
     }
 
-    env->features[FEAT_1_ECX] |= CPUID_EXT_HYPERVISOR;
+    //modified by simpower91
+    //don't make the bit 31 to be 1, i'm considerring to comment all ext_hypervisor, but need to be tested
+    //env->features[FEAT_1_ECX] |= CPUID_EXT_HYPERVISOR;
 
     /* sysenter isn't supported in compatibility mode on AMD,
      * syscall isn't supported in compatibility mode on Intel.
